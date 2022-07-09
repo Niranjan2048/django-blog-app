@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Brownie Points</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+        <meta name="google" content="notranslate" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous" />
+        <link href="https://unpkg.com/tailwindcss@%5E1.0/dist/tailwind.min.css" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+        <link rel="stylesheet" href="{% static 'css/about_us.css' %}">
+       
+    </head>
+
+    <body  id='bg' style="background-image:url('{% static 'img/abt1.png' %}');" >
+    
+        
+        {% block content %}
+         <!-- Content Goes here -->
+        {% comment %} <img src="{% static 'img/abt2.png'  %}" class="img-thumbnail" width='500px'height='500px'> {% endcomment %}
+        <div class="about us"  style="background-image:url('{% static 'img/abt6.jpg' %}');" class="img-thumbnail" width='auto' height='auto' id="abt">
+          <div class="inner-container" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <h1>About Us</h1>
+            <p class="text">A Big hello to all the amazing people who love and make cakes.
+
+            Our team consists of people awesomely crazily passionate about Baking. Baking changed our lives for good. For us it has been a healer, a friend and a guide. So we decided to give something back in the only way we know, combining our passion for baking and good software into Baking It.
+
+            We launched "Brownie Points Blog" in April 2013 and since then we have shared many baking recipes for cake makers.
+
+            Join us today by loginig in our blog which will help you in making cakes!!
+
+
+                </p>
+                <div class="skills">
+                    <span>BREAKFASTS</span>
+                    <span>DESSERTS</span>
+                    <span>HOLIDAY RECIPES</span>
+                
+                </div>
+
+                <div class="link">
+                <ul>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                </ul>
+                </div>
+                
+            </div>
+        </div>    
+
+        
+
+          
+
+        {% endblock content %}
+        
+          
+
+        
+
+
+
+        {% comment %} <!-- Footer -->
+        <footer class="py-3 bg-grey">
+            <p class="m-0 text-dark text-center ">Copyright &copy; Brownie Points</p>
+        </footer> {% endcomment %}
+    </body>
+</html>

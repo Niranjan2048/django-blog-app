@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type = "text/xsl" href = "thesaurus.xsl"?> 
+<!DOCTYPE class SYSTEM "thesaurus.dtd">
+<theresa>
+<word content="Good">
+<synonyms>excellent,exceptional,favorable,great</synonyms>
+ <antonyms>evil,fake,forged,immoral</antonyms>
+</word>
+<word content="Dumb">
+<synonyms>stupid, wordless, silent</synonyms>
+<antonyms>bright,intelligent,sharp,smart</antonyms>
+</word>
+</theresa>

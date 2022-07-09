@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT thesaurus (word)*>
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT word (synonyms)*>
+<!ELEMENT word (antonyms)*>
+<!ATTLIST word
+content CDATA #IMPLIED
+>
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT synonyms (#PCDATA)>

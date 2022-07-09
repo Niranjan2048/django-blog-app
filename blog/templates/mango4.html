@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jackpot</title>
+</head>
+<style>
+    body {
+        background-color: rgb(209, 255, 6);
+    }
+
+    p {
+        border: 2px solid black;
+        width: 10vw;
+        margin: 3px 45vw;
+        font-size: large;
+        font-weight: 1000;
+    }
+
+    h2 {
+        text-align: center;
+        color: rgb(233, 48, 16);
+    }
+
+    input {
+        border-radius: 1rem;
+        outline: none;
+        padding: 5px;
+        margin: 5px 43vw;
+    }
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <div class="form">
+        <center><h1>Jackpot!!!!!</h1></center>
+        <h2>enter the number</h2>
+        <form id="content">
+            <input type="text" name="number" id="num" maxlength="4" required>
+            <input type="submit" id="sub">
+        </form>
+    </div>
+    <h2>Prize Money</h2>
+    <p id="money" >0</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js"
+        integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#sub').click(function (event) {
+                event.preventDefault()
+                $.ajax({
+                    url: 'http://localhost:80443/prize', method: 'POST', dataType: 'json', data: { prize: $('#text-num').val() }, complete: function (data) {
+                        $('#mon').text(data.responseJSON.prize)
+                    }, error: function (err) {
+                        console.log(err)
+                    }
+                })
+            })
+        })
+    </script>
+    <script>
+        app.post('/prize', async (req, res) => {
+            try {
+                let prize = req.body.prize
+                prize = parseInt(prize)
+                const lst = prize % 10
+                if (lst == 7) {
+                    return res.send({
+                        prize: 1000
+                    })
+                }
+                else if (lst == 9) {
+                    return res.send({
+                        prize: 3000
+                    })
+                }
+                else {
+                    return res.send({
+                        prize: 100
+                    })
+                }
+            } catch (err) {
+                console.log(err)
+            }
+        })
+        app.listen('12345')
+    </script>
+</body>
+
+</html>

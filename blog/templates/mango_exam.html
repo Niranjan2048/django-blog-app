@@ -1,0 +1,63 @@
+
+<html lang="en">
+<head>
+  
+    <title>Grid</title>
+</head>
+<body>
+    <input type='text' id='leftOp' value='' onkeyup="inputChange()">
+     <input type='text' id='rightOp' value='' onkeyup="inputChange()">
+</body>
+</html>
+<script>
+var color_td;
+document.write("<table border='1px'>");
+
+for (var i = 1; i < 11; i++) {
+    var id;
+    var cellClass;
+    document.write("<tr style='height:30px;'>");
+
+    for (var j = 1; j < 13; j++) {
+        id = 'cell-' + i + '-' + j;
+        if (j == 1 || i == 1) {
+            color_td = "#ccc";
+            cellClass = "border-cell";
+        }
+        else {
+            color_td = "#fff";
+            cellClass = "result-cell";
+        }
+        
+        document.write("<td class='" + cellClass + "' id='" + id + "' style='width:30px;background-color:" + color_td + "'>" + i * j + "</td>");
+    }
+    document.write("</tr>");
+}
+
+document.write("</table>");
+
+function inputChange() {
+    var left = document.getElementById('leftOp').value;
+    var right = document.getElementById('rightOp').value;
+
+    if (!left || !right || left > 10 || left < 1 || right > 10 || left < 1) {
+        return;
+    }
+
+    var cells = document.getElementsByClassName('result-cell');
+    for (var i = 0; i < cells.length; i++) {
+        var cell = cells[i];
+        cell.style.backgroundColor = '#fff';
+    }
+    var cells = document.getElementsByClassName('border-cell');
+    for (var i = 0; i < cells.length; i++) {
+        var cell = cells[i];
+        cell.style.backgroundColor = '#ccc';
+    }
+    for(var i = 1; i < 11; i++) {
+        var resultCell = document.getElementById('cell-' + left + '-' + i);
+        resultCell.style.backgroundColor = '#5fc047';
+    }
+    
+}
+</script>

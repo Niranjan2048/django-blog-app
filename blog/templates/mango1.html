@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initialscale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstr
+ap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <title>Lab Assignment 7</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        .container-button {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .container-extract-text {
+            height: 100vh;
+            width: 100%;
+            background-color: #9AEFF5;
+            color: #EF2654;
+            display: grid;
+            grid-template-columns: repeat(2, 50%);
+        }
+
+        .extract {
+            grid-column: 1/2;
+            font-size: 35px;
+        }
+
+        .ul {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 30px;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        .search {
+            grid-column: 2/3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .search-1 {
+            width: 100%;
+            padding: 30px;
+        }
+
+        #search-button {
+            position: absolute;
+            top: 60%;
+        }
+
+        .field {
+            width: 80%;
+        }
+
+        .btn {
+            height: 50px;
+            width: 150px;
+        }
+
+        #green {
+            background-color: green;
+        }
+
+        #ext-button {
+            text-align: center;
+            margin-left: 370px;
+        }
+
+        .extracted {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .container-function {
+            height: 100vh;
+            width: 100%;
+            background-color: #F7F0C4;
+        }
+
+        .container-function>div {
+            height: 33vh;
+            width: 80%;
+            margin-left: 10%;
+            border: 2px solid black;
+            border-radius: 15px;
+        }
+
+        .check-box {
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-around;
+            border: 2px solid blue;
+            border-radius: 15px;
+        }
+
+        #area {
+            text-align: center;
+            color: red;
+        }
+
+        #area>h2 {
+            margin-top: 10%;
+        }
+
+        .rm-style {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .rm-style>h3 {
+            display: block;
+            width: 100%;
+            margin: 40px;
+        }
+
+        .rm-style>.but>button {
+            margin: 20px;
+        }
+
+        .test {
+            font-size: 40px;
+            color: red;
+            font-weight: bolder;
+            font-family: 'Comic Sans MS', 'Arial', Calibri, 'Trebuchet MS',
+                sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 align="center">Kumar Mangalam - 18BCE0586</h2>
+    <div class="container-button">
+        <button class="btn btn-success" id="green">
+            Green
+        </button>
+        <button class="btn btn-danger" id="red">
+            RED
+        </button>
+        <button class="btn btn-primary" id="blue">
+            BLUE
+        </button>
+    </div>
+    <div class="container-extract-text">
+        <div class="extract">
+            <div class="ul">
+                <ul class="list-extract">
+                    <li>Aditya Agrawal</li>
+                    <li>Apple</li>
+                    <li>Banana</li>
+                    <li>Cherries</li>
+                    <li>Grapes</li>
+                    <li>Kiwi</li>
+                    <li>Orange</li>
+                    <li>Watermelon</li>
+                </ul>
+            </div>
+            <button class="btn btn-danger" id="ext-button">
+                Extract Text
+            </button>
+            <div class="extracted">
+                <p id="ext"></p>
+            </div>
+        </div>
+        <div class="search">
+            <div class="active-cyan-4 mb-4 search-1">
+                <input class="form-control" id="field" type="text" placeholder="Search" aria-label="Search">
+            </div>
+            <button class="btn btn-primary" id="search-button">
+                Search
+            </button>
+        </div>
+    </div>
+    <div class="container-function">
+        <div class="check-box">
+            <input type="checkbox" id="ch-box">
+            <button id="check" class="btn btndanger">Submit</button>
+        </div>
+        <div class="distinguish" id="area">
+            <h2>Area To Detect Left and Right Click</h2>
+        </div>
+        <div class="rm-style">
+            <h3 id="prp">Add or Remove CSS style</h3>
+            <div class="but">
+                <button id="add" class="btn btnprimary">Add</button>
+                <button id="remove" class="btn btnprimary">Remove</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#green').mouseenter(function () {
+                $(this).mouseleave(function () {
+                    $('.container-button').css("background-color", "white")
+                })
+                $('.container-button').css("background-color", "green")
+                $('#green').css("background-color", "green")
+            })
+            $('#blue').mouseenter(function () {
+                $(this).mouseleave(function () {
+                    $('.container-button').css("background-color", "white")
+                })
+                $('.container-button').css("background-color", "blue")
+                $('#blue').css("background-color", "blue")
+            })
+            $('#red').mouseenter(function () {
+                $(this).mouseleave(function () {
+                    $('.container-button').css("background-color", "white")
+                })
+                $('.container-button').css("background-color", "red")
+                $('#red').css("background-color", "red")
+            })
+            $('#ext-button').click(function () {
+                var text = $('.list-extract').text()
+                $('#ext').text(text)
+            })
+            $('#search-button').click(function () {
+                var search = $('#field').val()
+                console.log(search)
+                if (search.length == 0) {
+                    alert('Empty Search Field')
+                }
+                else {
+                    var flag = 0
+                    $('.list-extract li').each(function (i, li) {
+                        var product = $(li);
+                        if (product[0].innerText == search) {
+                            product.css('font-weight', 'bolder')
+                            product.css('color', 'green')
+                            flag = 0;
+                            return flag;
+                        }
+                        else {
+
+                        }
+                    });
+                }
+            })
+            $('#ch-box').click(function () {
+                if ($('#ch-box')[0].checked) {
+                    $('#check').prop('disabled', false)
+                } else {
+                    $('#check').prop('disabled', true)
+                }
+            })
+            $('#area').click(function (event) {
+                if (event.button == 0) {
+                    alert('Left Click')
+                }
+                else if (event.button == 2) {
+                    alert('Right Click')
+                }
+            })
+            $('#add').click(function () {
+                $('#prp').addClass("test")
+            })
+            $('#remove').click(function () {
+                $('#prp').removeClass("test")
+            })
+        })
+
+    </script>
+</body>
+
+</html>
